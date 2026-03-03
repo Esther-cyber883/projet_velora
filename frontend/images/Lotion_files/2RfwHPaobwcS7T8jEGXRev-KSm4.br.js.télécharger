@@ -1,0 +1,1 @@
+var GenSerpScreenReader;(function(n){function i(n){let i=_ge("gs_status");i&&(i.textContent="",t!==null&&clearTimeout(t),t=setTimeout(()=>{i.textContent=n,t=null},100))}let t=null;n.announce=i})(GenSerpScreenReader||(GenSerpScreenReader={}))

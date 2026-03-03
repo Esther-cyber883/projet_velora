@@ -1,0 +1,312 @@
+
+.slider-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 450px;
+}
+
+.slider-piste {
+  display: flex;
+  width: 300%;
+  height: 100%;
+  animation: defilement 12s infinite;
+}
+
+/* Animation: défilement de droite vers gauche */
+@keyframes defilement {
+  0% { transform: translateX(0); }
+  33% { transform: translateX(-33.333%); }
+  66% { transform: translateX(-66.666%); }
+  100% { transform: translateX(0); }
+}
+
+
+.slider-slide {
+  width: 33.333%;
+  flex-shrink: 0;
+  height: 100%;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.slider-slide-1 { background-image: url("../images/maquillage1.jpg"); }
+.slider-slide-2 { background-image: url("../images/R.jpg"); }
+.slider-slide-3 { background-image: url("../images/ac.jpg"); }
+
+
+.slider-slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 0;
+}
+
+.slider-contenu {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: var(--couleur-blanc);
+  padding: 20px;
+  max-width: 500px;
+}
+
+.slider-contenu p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 2px var(--couleur-noir);
+}
+
+/* --- Section Nos marques partenaires --- */
+.marques-section {
+  padding: 50px 20px;
+  background-color: var(--couleur-blanc);
+}
+
+.marques-section h2 {
+  font-family: var(--police-principale);
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 1.8rem;
+  color: var(--couleur-noir);
+}
+
+.marques-liste {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.marques-liste span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--couleur-cafe);
+   background-color: bisque;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  padding: 30px 35px;
+  border-radius: 6px;
+}
+  
+
+.categories-section {
+  padding: 50px 20px;
+  background-color: var(--couleur-rose-clair);
+  
+}
+
+.categories-section h2 {
+  font-family: var(--police-principale);
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 1.8rem;
+  color: var(--couleur-noir);
+}
+
+.categories-grille {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1900px;
+  margin: 0;
+  margin-left: 20px;
+}
+
+.categorie-card {
+  text-align: center;
+  text-decoration: none;
+  color: var(--couleur-noir);
+  display: block;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: transparent;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.categorie-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.categorie-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+.categorie-card span {
+  display: block;
+  padding: 15px;
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--couleur-cafe);
+  background-color: var(--couleur-blanc);
+}
+
+.nouveautes-section {
+  padding: 50px 20px;
+  background-color: var(--couleur-blanc);
+}
+
+.nouveautes-section h2 {
+  font-family: var(--police-principale);
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 1.8rem;
+  color: var(--couleur-noir);
+}
+
+.nouveautes-grille {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  max-width: 1900px;
+  margin: 0;
+  margin-left: 20px;
+}
+
+.nouveaute-card {
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  padding-bottom: 15px;
+}
+
+.nouveaute-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+.nouveaute-card h3 {
+  font-size: 1rem;
+  margin: 12px 10px 5px;
+  color: var(--couleur-noir);
+  text-align: center;
+}
+
+.nouveaute-card p {
+  font-size: 0.9rem;
+  color: var(--couleur-cafe);
+  text-align: center;
+}
+.nouveaute-card .prix {
+  font-weight: bold;
+  color: var(--couleur-noir);
+  margin-top: 8px;
+}
+.btn-paniere{
+  background-color: var(--couleur-or);
+  border: none;
+  color: var(--couleur-blanc);
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+  margin-left: 60px;
+}
+.btn-panier:hover {
+  background-color: var(--couleur-noir);
+}
+
+@media (max-width: 768px) {
+  .slider-section {
+    height: 300px;
+  }
+  
+  .slider-contenu p {
+    font-size: 0.95rem;
+  }
+  
+  .marques-liste {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .categories-grille {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .nouveautes-grille {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Téléphones (480px et moins) */
+@media (max-width: 480px) {
+  .slider-section {
+    height: 250px;
+  }
+  
+  .slider-contenu {
+    padding: 10px;
+  }
+  
+  .slider-contenu p {
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+  }
+  
+  .marques-section {
+    padding: 30px 15px;
+  }
+  
+  .marques-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .marques-liste {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .marques-liste span {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+  }
+  
+  .categories-section {
+    padding: 30px 15px;
+  }
+  
+  .categories-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .categories-grille {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .nouveautes-section {
+    padding: 30px 15px;
+  }
+  
+  .nouveautes-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .nouveautes-grille {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}

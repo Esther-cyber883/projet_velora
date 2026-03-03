@@ -1,0 +1,84 @@
+/* ============================================
+   Page Galerie - Filtre par type de service, cards images
+   ============================================ */
+
+.galerie-filtres {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 30px 20px;
+  background-color: var(--couleur-rose-clair);
+  border-bottom: 2px solid var(--couleur-or);
+}
+
+.galerie-filtres button {
+  padding: 12px 24px;
+  background-color: var(--couleur-blanc);
+  color: var(--couleur-noir);
+  border: 2px solid var(--couleur-cafe);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-family: var(--police-secondaire);
+}
+
+.galerie-filtres button:hover,
+.galerie-filtres button.actif {
+  background-color: var(--couleur-or);
+  color: var(--couleur-blanc);
+  border-color: var(--couleur-or);
+}
+
+/* Contenu des cards par type: un seul type visible à la fois */
+.galerie-contenu {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.galerie-type {
+  display: none;
+}
+
+.galerie-type.visible {
+  display: block;
+}
+
+.galerie-type h3 {
+  font-family: var(--police-principale);
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: var(--couleur-cafe);
+  text-align: center;
+}
+
+.galerie-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.galerie-card {
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--couleur-rose-clair);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.galerie-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.galerie-card p {
+  padding: 12px;
+  font-size: 0.9rem;
+  color: var(--couleur-noir);
+  text-align: center;
+}
+
+

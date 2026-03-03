@@ -1,0 +1,1 @@
+function genserpLogMdmCounter(n){const i="wpt/mdmmetric?mdmscnr="+n,t=sj_gx();t.open("POST",encodeURI(i),!0);t.timeout=2e3;t.setRequestHeader("content-type","application/json");t.send()}
