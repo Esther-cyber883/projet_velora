@@ -9,10 +9,21 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* ===== HERO ===== */
+
+    
+:root {
+  --couleur-or: #C9A227;
+  --couleur-noir: #1a1a1a;
+  --couleur-blanc: #ffffff;
+  --couleur-rose-clair: #e59bba;
+  --couleur-cafe: #6F4E37;
+  --police-principale: Georgia, "Times New Roman", serif;
+  --police-secondaire: Arial, Helvetica, sans-serif;
+}
     .apropos-hero {
       position: relative;
       height: 420px;
-      background: linear-gradient(135deg, #1a1a2e 0%, #6b2d5e 50%, #c07a9a 100%);
+      background: linear-gradient(135deg, #1a1a2e 0%, #141213 50%, #130109 100%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -122,7 +133,7 @@
 
     /* ===== CHIFFRES ===== */
     .chiffres-section {
-      background: linear-gradient(135deg, #6b2d5e, #c07a9a);
+      background: var(--couleur-cafe);
       padding: 60px 24px;
       text-align: center;
       color: white;
