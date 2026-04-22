@@ -20,10 +20,11 @@ if (isset($_POST['envoyer'])) {
         if ($verif->rowCount() > 0) {
             echo "<script>alert('Cet email est déjà utilisé ! Veuillez en choisir un autre.'); window.location.href = '../frontend/pages/inscription.php';</script>";
         } else {
-            // Insérer avec role = 'client' par défaut
+            // Insérer l'utilisateur (la colonne `role` n'existe pas dans le schéma fourni)
+            // on utilise la colonne `date_inscription` pour stocker la date (CURDATE())
             $requete = $dbpdo->prepare(
-                "INSERT INTO utilisateur (nom, prenom, email, telephone, Adresse, ville, mot_de_passe, role)
-                 VALUES (:nom, :prenom, :email, :telephone, :Adresse, :ville, :mot_de_passe, 'client')"
+                "INSERT INTO utilisateur (nom, prenom, email, telephone, Adresse, ville, mot_de_passe, date_inscription)
+                 VALUES (:nom, :prenom, :email, :telephone, :Adresse, :ville, :mot_de_passe, CURDATE())"
             );
             $requete->bindValue(':nom',          $nom);
             $requete->bindValue(':prenom',        $prenom);

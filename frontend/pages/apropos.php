@@ -337,41 +337,7 @@
 <body>
 
   <!-- HEADER -->
-  <header class="header">
-    <div class="header-gauche">
-      <i class="fa-solid fa-shop header-logo-icon"></i>
-      <span class="header-nom">Velora</span>
-    </div>
-    <nav class="header-nav" id="navMenu">
-      <a href="main.php">Accueil</a>
-      <a href="boutique.php">Boutique</a>
-      <a href="apropos.php" class="actif">À propos</a>
-    </nav>
-    <div class="header-droite">
-      <a href="panier.php" class="header-action header-panier">
-        <i class="fa-solid fa-cart-shopping"></i>
-      </a>
-      <div class="user-menu">
-        <button class="user-avatar" id="userAvatar">
-          <i class="fa-solid fa-user"></i>
-        </button>
-        <div class="user-dropdown" id="userDropdown">
-          <?php if (isset($_SESSION['id_utilisateur'])): ?>
-            <span class="user-nom">Bonjour, <?php echo htmlspecialchars($_SESSION['nom']); ?> !</span>
-            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
-              <a href="admin/dashboard.php"><i class="fa-solid fa-gear"></i> Espace Admin</a>
-            <?php endif; ?>
-            <a href="../../backend/deconnexion.php"><i class="fa-solid fa-right-from-bracket"></i> Déconnexion</a>
-          <?php else: ?>
-            <a href="connexion.php">Se connecter</a>
-          <?php endif; ?>
-        </div>
-      </div>
-      <button class="menu-burger" id="menuBurger">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
+  <?php include 'header_nav.php'; ?>
 
   <!-- HERO -->
   <section class="apropos-hero">
@@ -594,5 +560,6 @@
     }
   </script>
 
+  <?php include 'footer_scripts.php'; ?>
 </body>
 </html>

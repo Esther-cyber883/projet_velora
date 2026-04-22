@@ -20,6 +20,10 @@ CREATE TABLE utilisateur (
     date_inscription DATE             
 ) ENGINE=InnoDB;
 
+-- Ajouter la colonne `role` si vous souhaitez gérer les rôles (par défaut 'client')
+ALTER TABLE utilisateur
+  ADD COLUMN role VARCHAR(20) NOT NULL DEFAULT 'client';
+
 
 -- 3. Table catégorie
 CREATE TABLE categorie (

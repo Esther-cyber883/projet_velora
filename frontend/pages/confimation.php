@@ -50,16 +50,7 @@ $details = $stmt_details->fetchAll();
 </head>
 <body>
 
-  <header class="header">
-    <div class="header-gauche">
-      <i class="fa-solid fa-shop header-logo-icon"></i>
-      <span class="header-nom">Velora</span>
-    </div>
-    <nav class="header-nav">
-      <a href="main.php">Accueil</a>
-      <a href="boutique.php">Boutique</a>
-    </nav>
-  </header>
+  <?php include 'header_nav.php'; ?>
 
   <section class="confirmation-section">
     <!-- Icône de succès -->
@@ -131,5 +122,6 @@ $details = $stmt_details->fetchAll();
     <p class="footer-copyright">Velora. Tous droits réservés.</p>
   </footer>
 
+  <?php include 'footer_scripts.php'; ?>
 </body>
 </html>

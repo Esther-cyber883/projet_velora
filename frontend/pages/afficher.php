@@ -1,3 +1,11 @@
+<?php
+include '../../backend/db.php';
+// Vérifier que l'utilisateur est connecté ET qu'il est admin
+if (!isset($_SESSION['id_utilisateur'])) {
+  header('Location: connexion.php');
+  exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,35 +18,7 @@
 </head>
 <body>
 
-  <header class="header">
-    <div class="header-gauche">
-      <i class="fa-solid fa-shop header-logo-icon" aria-hidden="true"></i>
-      <span class="header-nom">Velora</span>
-    </div>
-    <nav class="header-nav" id="navMenu">
-      <a href="main.php">Accueil</a>
-      <a href="boutique.php">Boutique</a>
-      <a href="inscription.php">Inscription</a>
-    </nav>
-    <div class="header-droite">
-      <a href="panier.php" class="header-action header-panier" aria-label="Panier"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i></a>
-      <div class="user-menu">
-        <button class="user-avatar" id="userAvatar" aria-label="Menu utilisateur">
-          <i class="fa-solid fa-user" aria-hidden="true"></i>
-        </button>
-        <div class="user-dropdown" id="userDropdown">
-          <a href="connexion.php">Se connecter</a>
-          <a href="#">Déconnexion</a>
-          <a href="afficher.php">Afficher tous nos clients</a>
-        </div>
-      </div>
-      <button class="menu-burger" id="menuBurger" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </header>
+  <?php include 'header_nav.php'; ?>
 
   <section class="page-hero page-hero-avec-image">
     <div class="page-hero-overlay" aria-hidden="true"></div>
@@ -48,28 +28,17 @@
 
   <div class="afficher-contenu">
     <main class="clients-main">
-      <?php
-include '../../backend/db.php'; // db.php démarre déjà la session
+        <?php
+    // recuperation des données du formulaire d'inscription
+    $requete = "SELECT id_utilisateur, nom, prenom, email, telephone, adresse, ville FROM utilisateur ORDER BY id_utilisateur ASC";
+    $resultat = $dbpdo->query($requete);
 
-// Vérifier que l'utilisateur est connecté ET qu'il est admin
-if (!isset($_SESSION['id_utilisateur'])) {
-    header('Location: connexion.php');
-    exit();
-}
-?>
-<?php
-include '../../backend/db.php';
+    if (!$resultat) {
+      echo "Erreur lors de la récupération des données.";
+    } else {
+      $nbre_utilisateurs = $resultat->rowCount();
 
-// recuperation des données du formulaire d'inscription
-$requete = "SELECT id_utilisateur, nom, prenom, email, telephone, adresse, ville FROM utilisateur ORDER BY id_utilisateur ASC";
-$resultat = $dbpdo->query($requete); //appliquer la methode query() pour exécuter la requete SQL et récupérer les résultats dans $resultat
-
-if (!$resultat) {
-    echo "Erreur lors de la récupération des données.";
-} else {
-    $nbre_utilisateurs = $resultat->rowCount(); //compter le nombre de lignes dans le résultat
-
-    ?>
+      ?>
       <div class="section-title">
         <h2>Clients inscrits</h2>
         <p class="nombre-clients">Nombre d'utilisateurs : <span><?php echo $nbre_utilisateurs; ?></span></p>
@@ -129,11 +98,11 @@ if (!$resultat) {
     document.getElementById('userDropdown').addEventListener('click', function(e) {
       e.stopPropagation();
     });
-  </script>
-
- <?php
+ 
+  <?php
 $resultat->closeCursor(); //fermer le curseur pour libérer les ressources associées au résultat
 ?>
 
+  <?php include 'footer_scripts.php'; ?>
 </body>
 </html>

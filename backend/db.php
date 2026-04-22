@@ -1,11 +1,16 @@
 <?php
+// Activer le buffering pour empêcher les sorties accidentelles
+if (!ob_get_level()) {
+    ob_start();
+}
+
 // Démarrer la session une seule fois pour tout le site
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
 // Paramètres de connexion à la base de données
-$db_host = 'localhost';
+$db_host = '127.0.0.1';
 $db_name = 'velora_db';
 $db_user = 'root';
 $db_pass = '';
@@ -25,4 +30,3 @@ try {
     // Afficher un message lisible sans exposer les détails techniques
     die("Erreur de connexion à la base de données. Contactez l'administrateur.");
 }
-?>

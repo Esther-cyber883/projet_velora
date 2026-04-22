@@ -92,11 +92,16 @@
 .marques-liste span {
   font-size: 1.5rem;
   font-weight: bold;
-  color: var(--couleur-cafe);
-   background-color: bisque;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  color: white;
+  background: linear-gradient(135deg, var(--couleur-or), var(--couleur-cafe));
+  box-shadow: 0 10px 30px rgba(201, 162, 39, 0.25);
   padding: 30px 35px;
-  border-radius: 6px;
+  border-radius: 12px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.marques-liste span:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(201, 162, 39, 0.35);
 }
   
 
@@ -129,13 +134,16 @@
   color: var(--couleur-noir);
   display: block;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 16px;
   background-color: transparent;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: transform 0.3s cubic-bezier(.2,.9,.2,1), box-shadow 0.3s ease;
 }
 
 .categorie-card:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+  transform: translateY(-8px) scale(1.02);
 }
 
 .categorie-card img {
@@ -178,9 +186,15 @@
 
 .nouveaute-card {
   text-align: center;
-  border-radius: 8px;
+  border-radius: 16px;
   overflow: hidden;
-  padding-bottom: 15px;
+  padding-bottom: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,1), rgba(252,252,252,1));
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: transform 0.3s cubic-bezier(.2,.9,.2,1), box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .nouveaute-card img {
@@ -188,6 +202,7 @@
   height: 280px;
   object-fit: cover;
   display: block;
+  transition: transform 0.5s cubic-bezier(.2,.9,.2,1);
 }
 
 .nouveaute-card h3 {
@@ -211,15 +226,20 @@
   background-color: var(--couleur-or);
   border: none;
   color: var(--couleur-blanc);
-  padding: 10px 15px;
-  border-radius: 5px;
+  padding: 10px 16px;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 1rem;
   margin-top: 10px;
-  margin-left: 60px;
+  margin-left: auto;
+  margin-right: 10px;
+  box-shadow: 0 6px 16px rgba(201, 162, 39, 0.2);
+  transition: background-color 0.18s ease, transform 0.1s ease, box-shadow 0.18s ease;
 }
-.btn-panier:hover {
+.btn-paniere:hover {
   background-color: var(--couleur-noir);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(26, 26, 26, 0.2);
 }
 
 @media (max-width: 768px) {
